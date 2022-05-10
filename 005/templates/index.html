@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>hola render</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'estilos.css') }}">
+    </head>
+    <body>
+        <h1>Hola {{ nombre }}</h1>
+        {% if nombre == "admin" %}
+            <h1>Usted se unio como: admin</h1>
+            <table border="1">
+                <tr><td>id</td><td>nombre</td></tr>
+                {% for k, v in usuarios.items() %}
+                    <tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <h1>Usted se unio como invitado</h1>
+        {% endif %}
+    </body>
+</html>
